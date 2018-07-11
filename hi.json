@@ -1,0 +1,12 @@
+{
+  "interval_time": 10,
+  "tcp": {
+    "host_ip": "192.168.0.1",
+    "host_port": 80
+  },
+  "tls": {
+    "host_ip": "192.168.0.1",
+    "host_port": 443,
+    "tls_location": "data/tls.tls"
+  }
+}
