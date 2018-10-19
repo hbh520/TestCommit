@@ -1,0 +1,18 @@
+<view>
+  <template name="t1" >
+    <view>
+      <view>收件人：{{name}}</view>
+      <view>联系方式：{{phone}}</view>
+    </view>
+  </template>
+  <template is="t1" data="{{...tmpdata}}"></template>
+  <view>采用import引用模板</view>
+  <import src="a.wxml"></import>
+  <template is="t2" data="{{...tmpdata}}"></template>
+  <view>采用include引用模板</view>
+  <include src="b.wxml"></include>
+  <template is="t3" data="{{...tmpdata}}"></template>
+  <view>来自wxs</view>
+  <wxs src="template.wxs" module="m1" />
+  <view>{{m1.message}}</view>
+</view>

@@ -1,0 +1,35 @@
+<view>swiper组件</view>
+<view class='page-body'>
+  <view class='page-section page-section-spacing swiper'>
+    <swiper
+      indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}"
+      interval="{{interval}}"
+      duration="{{duration}}"
+      current="1"
+      bindchange="change"
+      bindanimationfinish="animationfinish">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item {{item}}" />
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <view class="page-section" style="margin-top: 40rpx; margin-bottom:0">
+    <view class="weui-cells weui-cells_after-title">
+      <view class='weui-cell weui-cell_switch'>
+        <view class="weui-cell__bd">指示点</view>
+        <view class="weui-cell__ft">
+            <switch checked='{{indicatorDots}}' bindchange="changeIndicatorDots" />
+        </view>
+      </view>
+      <view class='weui-cell weui-cell_switch'>
+        <view class='weui-cell__bd'>自动播放</view>
+        <view class="weui-cell__ft">
+            <switch checked='{{autoplay}}' bindchange='changeAutoplay'></switch>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

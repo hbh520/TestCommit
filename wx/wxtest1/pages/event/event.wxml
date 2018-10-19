@@ -1,0 +1,9 @@
+<view>
+  <view capture-bind:tap="clickA">
+  AAAAA
+    <view bindtap='clickB' >
+    BBBBBB
+      <view capture-catch:tap='clickC' >CCCCC</view>
+    </view>
+  </view>
+</view>

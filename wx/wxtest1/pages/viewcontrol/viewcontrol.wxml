@@ -1,0 +1,11 @@
+<view>
+  <view>View组件</view>
+  <view class="view-parent-container" hover-class='hover-parent-container'>
+    <view class="view-container"
+        hover-class='hover-container'
+        hover-stop-propagation='false'
+        hover-start-time='500'
+        hover-stay-time='300'>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,117 @@
+<w-pane title="Cell" desc="列表" />
+
+<w-pane desc="Default" />
+<w-cell-group>
+	<w-cell
+	 label="列表"
+	 highlight
+	 content="内容"
+	/>
+</w-cell-group>
+
+<w-pane desc="Desc" />
+<w-cell-group>
+	<w-cell
+	 label="列表"
+	 highlight
+	 content="内容"
+	 desc="附加标题"
+	/>
+</w-cell-group>
+
+<w-pane desc="Multiple" />
+<w-cell-group>
+	<w-cell
+	 isLink
+	 label="列表{{index}}"
+	 highlight
+	 content="内容{{index}}"
+	 wx:for="{{4}}"
+	 wx:key="index"
+	/>
+</w-cell-group>
+
+<w-pane desc="Link" />
+<w-cell-group>
+	<w-cell
+	 isLink
+	 label="navigateTo"
+	 highlight
+	 content="w-button"
+	 link="../w-button/index"
+	/>
+	<w-cell
+	 isLink
+	 label="redirectTo"
+	 highlight
+	 content="w-button"
+	 linkType="redirectTo"
+	 link="../w-button/index"
+	/>
+	<w-cell
+	 isLink
+	 label="switchTab"
+	 highlight
+	 content="index"
+	 linkType="redirectTo"
+	 link="../index/index"
+	/>
+	<w-cell
+	 isLink
+	 label="navigateBack"
+	 highlight
+	 content="w-button"
+	 linkType="navigateBack"
+	 delta="1"
+	/>
+</w-cell-group>
+
+<w-pane desc="Icon" />
+<w-cell-group>
+	<w-cell
+	 isLink
+	 label="example title"
+	 highlight
+	 content="example description"
+	 icon="home"
+	/>
+</w-cell-group>
+
+<w-pane desc="Disabled" />
+<w-cell-group>
+	<w-cell
+	 isLink
+	 disabled
+	 label="消息"
+	 link="/message"
+	/>
+	<w-cell
+	 isLink
+	 disabled
+	 label="列表"
+	 link="/message"
+	/>
+	<w-cell
+	 isLink
+	 disabled
+	 label="设置"
+	 link="/message"
+	/>
+</w-cell-group>
+
+<w-pane desc="Slot" />
+<w-cell-group>
+	<w-cell
+	 disabled
+	 icon="home"
+	 link="/message"
+	>
+		<view slot="label">
+			我的消息
+		</view>
+		<view slot="content">
+			内容
+		</view>
+	</w-cell>
+</w-cell-group>
+

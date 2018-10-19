@@ -1,0 +1,5 @@
+@import '/common/weui.wxss';
+
+.block {
+  margin: 10px auto;
+}

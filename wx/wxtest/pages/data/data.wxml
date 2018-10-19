@@ -1,0 +1,64 @@
+<!--pages/data/data.wxml-->
+<view style='width:750rpx;height:105rpx;background-color:#19214F'>
+  <view style='display:flex;flex-direction:row;'>
+    <text class='address' style='margin-left: 20rpx;'>当前位置：</text>
+    <text class='address1'>{{address}}</text>
+  </view>
+</view>
+<view style='width:750rpx;height:900rpx;'>
+  <canvas style='width:100%;height:900rpx;' canvas-id='canvas1'></canvas>
+  <view style='width:100%;height:900rpx;position:relative;top:-900rpx'>
+  <movable-area style="height: 100%; width: 100%;">
+    <movable-view
+      x='{{x}}'
+      y='{{y}}'
+      direction="all"
+      inertia="true">
+      <view class='h' style="height: 100rpx; width: 360rpx; background: #fff;border-radius: 5px">
+        <view style="height: 100rpx; width: 100rpx; background: #2DA1F4;border-top-left-radius: 5px;border-bottom-left-radius: 5px;display:flex;flex-direction: row;justify-content: center;flex-wrap: wrap;align-items:center;">
+          <image src='../../images/icon.jpg' style='width: 50rpx;height:50rpx'/>
+        </view>
+        <view style="height: 100rpx; width: 260rpx;display:flex;flex-direction: column;padding-top:15rpx;padding-left:5rpx">
+          <text class='txt' style='color:#000'>距离终点 904.6公里</text>
+          <text class='txt' style='color:#2DA1F4;margin-top:5rpx'>预计2018-10-20到达</text>
+        </view>
+      </view>
+      <view style="height: 30rpx; width: 360rpx;">
+        <text class='txt' style='color:#2DA1F4;margin-top:5rpx'>10-19 14:07</text>
+      </view>
+    </movable-view>
+  </movable-area>
+</view>
+</view>
+
+
+<view class='h' style='width:700rpx;height:120rpx;margin-left:25rpx;margin-right:25rpx;background-color:#19214F;border-radius: 60rpx'>
+  <view class='v' style='width:50%'>
+    <view style='margin-top:20rpx;margin-left:50rpx;'>
+      <text style='border:1px solid #fff;color:#fff;font-size: 30rpx;white-space:nowrap;'>{{carNum}}
+      </text>
+    </view>
+    
+    <text style='color:#fff;font-size: 25rpx;margin-top:5rpx;margin-left:50rpx;'>{{carType}}丨{{carLength}}</text>
+  </view>
+
+  <view style='width:2px;height:100rpx;margin-top:10rpx;background-color:#455299'></view>
+
+  <view class='v' style='width:50%;' catchtap='orderDetail' data-order='{{orderNum}}'>
+    <view style='margin-top:20rpx;margin-right:50rpx;display:flex;flex-direction:row;justify-content:flex-end'>
+      <text style='color:#fff;font-size: 28rpx;white-space:nowrap;text-overflow: ellipsis;'>订单：{{orderNum}}
+      </text>
+    </view>
+    <view style='margin-top:5rpx;margin-right:50rpx;display:flex;flex-direction:row;justify-content:flex-end'>
+      <text style='color:#fff;font-size: 25rpx;margin-top:5rpx;margin-left:50rpx;'>查看详情></text>
+    </view>
+  </view>
+  
+</view>
+
+<!-- <view class='v' style='height:350rpx'>
+  <view style="height: 50px; width: 50px; background: blue;"></view>
+  <view style="height: 50px; width: 50px; background: blue;"></view>
+  <view style="height: 50px; width: 50px; background: blue;"></view>
+  <view style="height: 50px; width: 50px; background: blue;"></view>
+</view> -->

@@ -1,0 +1,6 @@
+@import '/common/weui.wxss';
+
+.btn-area {
+  width: 590rpx;
+  margin: 12rpx auto 0;
+}

@@ -1,0 +1,35 @@
+/* pages/data/data.wxss */
+page { 
+background-image:url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1539764452568&di=6fa6406a95257aebde6a782b142793b3&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01986958837303a801219c77d8057f.jpg%401280w_1l_2o_100sh.jpg'); 
+margin: 0px; 
+background-size: 100% 100%; 
+} 
+.v{
+  display: flex;
+  flex-direction: column;
+}
+.h{
+  display: flex;
+  flex-direction: row;
+}
+.address{
+  color: #2DA1F4;
+  font-size: 30rpx;
+  margin-top:20rpx;
+  white-space:nowrap;
+}
+.address1{
+  display: -webkit-box;   
+  word-break: break-all;
+  color: #2DA1F4;
+  font-size: 30rpx;
+  margin-top:20rpx;
+  text-overflow: ellipsis;  
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; 
+}
+
+.txt{
+  display: -webkit-box;word-break: break-all;font-size: 24rpx;text-overflow: ellipsis;overflow: hidden;-webkit-box-orient: vertical;-webkit-line-clamp: 1;
+}

@@ -1,0 +1,74 @@
+<view class='h width-full top'>
+  <w-tabs class='tabs' 
+  border="{{ false }}" 
+  lineSize="0.5" 
+  activeColor="#2DA1F4" 
+  bind:onChange="handleClick" 
+  currentIndex="{{ index }}"
+  >
+    <w-tab
+    wx:for="{{ tabs }}"
+    wx:key="{{ index }}"
+    title="{{ item.text }}"
+    >
+    </w-tab>
+  </w-tabs>
+  <view class='v90'></view>
+  <image class='search' src='{{t}}' catchtap='jump'></image>
+</view>
+
+<view wx:for="{{datas}}" wx:key="{{index}}" >
+  <view class='h item' bindtap="onTabsItemTap" data-order="{{item.orderNum}}">
+    <image src='../../images/icon.jpg' class='itemIcon'></image>
+    <view class='v' style='background-color:#fff;width:430rpx;height:100%'>
+      <view class='itemOrder'>订单： {{item.orderNum}}</view>
+      <view class='itemProcessView'>
+        <progress percent="{{item.percent}}" active />
+      </view>
+      
+      <view class='h itemAddressView'>
+        <view style='font-size:30rpx;font-weight:normal;margin-left:13rpx;'>{{item.shipAddress}}</view>
+        <image style='width:60rpx;height:60rpx' src='{{rightIcon}}'></image>
+        <view style='font-size:30rpx;font-weight:normal'>{{item.shipAddress}}</view>
+      </view>
+      <view style='font-size:25rpx;'>{{item.date}}</view>
+      <view class='h'> 
+        <w-tag tagStyle="color:#fff;background-color:#6CBDF7;border-color:#6CBDF7;">{{item.cargoName}}</w-tag>
+        <w-tag tagStyle="color:#fff;background-color:#FE9D83;border-color:#FE9D83;">{{item.cargoNum}}</w-tag>
+      </view>
+      
+    </view>
+    <view style='height:100%;padding-top:210rpx;'>
+      <w-tag  tagStyle="color:#fff;background-color:#6CBDF7;border-color:#6CBDF7;">{{item.status}}</w-tag>
+    </view>
+    
+  </view>
+</view>
+<!-- <view class='h' style='width:100%;height:280rpx;border-top:8px solid #f0f0f0;background-color:#fff'>
+  <image src='../../images/icon.jpg' style='width:100rpx;height:100rpx;margin-top:25rpx;margin-left:25rpx;margin-right:25rpx'></image>
+  <view class='v' style='background-color:#fff;width:430rpx;height:100%'>
+    <view style='font-size:26rpx;margin-top:40rpx;height:40rpx;'>订单： {{datas[0].orderNum}}</view>
+    <view style='width:100%;margin-top:20rpx'>
+      <progress percent="80" active />
+    </view>
+    
+    <view class='h' style='align-items: center;margin-top:5rpx;margin-bottom:5rpx;'>
+      <view style='font-size:30rpx;font-weight:normal;margin-left:13rpx;'>{{datas[0].shipAddress}}</view>
+      <image style='width:60rpx;height:60rpx' src='{{rightIcon}}'></image>
+      <view style='font-size:30rpx;font-weight:normal'>{{datas[0].shipAddress}}</view>
+    </view>
+    <view style='font-size:25rpx;'>{{datas[0].date}}</view>
+    <view class='h'> 
+      <w-tag tagStyle="color:#fff;background-color:#6CBDF7;border-color:#6CBDF7;">{{datas[0].cargoName}}</w-tag>
+    <w-tag tagStyle="color:#fff;background-color:#FE9D83;border-color:#FE9D83;">{{datas[0].cargoNum}}</w-tag>
+    </view>
+    
+  </view>
+  <view style='height:100%;padding-top:210rpx;'>
+    <w-tag  tagStyle="color:#fff;background-color:#6CBDF7;border-color:#6CBDF7;">{{datas[0].status}}</w-tag>
+  </view>
+  
+</view> -->
+
+
+

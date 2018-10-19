@@ -1,0 +1,28 @@
+<!--pages/index/index.wxml-->
+<view>
+  <navigator open-type='navigateTo' url='/pages/language/language' >基本wxml语法</navigator>
+  <navigator open-type='navigateTo' url='/pages/event/event' >事件流</navigator>
+  <navigator open-type='navigateTo' url='/pages/template/template' >模板与WXS</navigator>
+  <navigator open-type='navigateTo' url='/pages/viewcontrol/viewcontrol' >视图控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/scroll-view/scrollview' >滚动控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/swiper/swiper' >轮播控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/movable/movable'>移动控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/cover/cover'>覆盖控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/icon/icon'>图标控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/text/text'>文本控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/progress/progress'>进度条控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/button/button'>按钮控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/checkbox/checkbox'>复选控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/form/form'>表单控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/input/input'>输入控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/label/label'>label控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/picker/picker'>picker控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/pickerView/pickerView'>pickerView控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/slider/slider'>slider控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/navigator/pageA/navigator'>navigator控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/audio/audio'>audio控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/images/images'>image控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/video/video'>video控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/map/map'>map控件</navigator>
+  <navigator open-type='navigateTo' url='/pages/canvas/canvas'>canvas控件</navigator>
+</view>

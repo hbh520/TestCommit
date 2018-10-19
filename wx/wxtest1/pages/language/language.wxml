@@ -1,0 +1,10 @@
+<view hidden="{{flag ? true : false}}">
+  <text data-name="{{message}}" >{{message}}</text>
+  <block wx:for="{{items}}" wx:for-item="item" wx:key="index" >
+    <view>{{index}}:{{item.name}}</view>
+  </block>
+  <view class="container" >今天吃什么？</view>
+  <view wx:if="{{condition === 1}}">饺子</view>
+  <view wx:elif="{{condition === 2}}">米饭</view>
+  <view wx:else>面食</view>
+</view>

@@ -1,0 +1,18 @@
+<view class="block">
+  <progress percent="20" show-info />
+</view>
+<view class="block">
+  <progress percent="40" stroke-width="12" />
+</view>
+<view class="block">
+  <progress percent="60" color="pink" />
+</view>
+<view class="block">
+  <progress percent="80" active />
+</view>
+<view class="blokc">
+  <progress percent="50" activeColor="#13c3a1" backgroundColor="#fff" />
+</view>
+<view class="block">
+  <progress percent="{{percentValue}}" show-info active active-mode="forwards" />
+</view>

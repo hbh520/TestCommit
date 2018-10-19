@@ -1,0 +1,7 @@
+  <template name="t3" >
+    <view>
+      <view>收件人3：{{name}}</view>
+      <view>联系方式3：{{phone}}</view>
+    </view>
+  </template>
+  <view>这是本来的内容</view>
