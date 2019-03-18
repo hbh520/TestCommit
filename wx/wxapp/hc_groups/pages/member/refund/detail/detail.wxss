@@ -1,0 +1,118 @@
+page {
+    background: #f5f5f5;
+}
+
+.top {
+    width: 94%;
+    padding: 0 3% 40rpx;
+    font-size: 35rpx;
+    font-weight: bold;
+    color: #171719;
+    background: #fff;
+}
+
+.top view:nth-child(1) {
+    padding: 20rpx 0% 20rpx;
+}
+
+.top view:nth-child(2) {
+    font-size: 30rpx;
+    color: #A0A0A0;
+    font-weight: normal;
+    line-height: 40rpx;
+}
+
+.xieshang {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #fff;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 20rpx 3%;
+    width: 94%;
+    margin: 20rpx 0;
+    font-size: 30rpx;
+    color: #1C1C1C;
+}
+
+.xieshang image {
+    width: 12rpx;
+    height: 22rpx;
+}
+
+.row {
+    width: 94%;
+    padding: 20rpx 3%;
+    font-size: 30rpx;
+    color: #777777;
+    background: #fff;
+    border-bottom: 2rpx solid #f5f5f5;
+}
+
+.row text:nth-child(1) {
+    width: 24%;
+    display: inline-block;
+}
+
+.row1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 94%;
+    padding: 20rpx 3%;
+    font-size: 30rpx;
+    color: #777777;
+    background: #fff;
+    border-bottom: 2rpx solid #f5f5f5;
+}
+
+.row1 view:nth-child(1) {
+    width: 24%;
+}
+
+.row1 view:nth-child(2) {
+    width: 76%;
+}
+
+.footer {
+    position: fixed;
+    width: 94%;
+    padding: 20rpx 3%;
+    z-index: 999;
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    background: #fff;
+    border-top: 2rpx solid #f5f5f5;
+}
+
+button {
+    width: 30%;
+    font-size: 30rpx;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    background: #EA292A;
+    margin: 0;
+}

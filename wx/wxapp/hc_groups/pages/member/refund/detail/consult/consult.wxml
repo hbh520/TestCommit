@@ -1,0 +1,57 @@
+<view class="datail" wx:if="{{detail.reject_time!=''}}">
+    <view class="top">
+        <image src="{{detail.avatar}}"></image>
+        <view class="topR">
+            <text>{{detail.reject_title}}</text>
+            <text>{{detail.reject_time}}</text>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="row">
+            <text>驳回理由：</text>
+            <text>{{detail.reject_reason}}</text>
+        </view>
+    </view>
+</view>
+<view class="datail" wx:if="{{detail.cancel_time!=''}}">
+    <view class="top">
+        <image src="{{detail.avatar}}"></image>
+        <view class="topR">
+            <text>{{detail.cancel_title}}</text>
+            <text>{{detail.cancel_time}}</text>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="row">
+            <text>备注：</text>
+            <text>{{detail.reject_remark}}</text>
+        </view>
+    </view>
+</view>
+<view class="datail" wx:if="{{detail.applytime!=''}}">
+    <view class="top">
+        <image src="{{detail.avatar}}"></image>
+        <view class="topR">
+            <text>{{detail.applytitle}}</text>
+            <text>{{detail.applytime}}</text>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="row">
+            <text>退款金额：</text>
+            <text>￥{{detail.applyprice}}</text>
+        </view>
+        <view class="row">
+            <text>退款原因：</text>
+            <text>{{detail.reason}}</text>
+        </view>
+        <view class="row">
+            <text>联系方式：</text>
+            <text>{{detail.mobile}}</text>
+        </view>
+        <view class="row">
+            <text>问题描述：</text>
+            <text>{{detail.content}}</text>
+        </view>
+    </view>
+</view>

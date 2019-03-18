@@ -1,0 +1,89 @@
+<view bindtap="showDetail" class="share" data-id="{{goods.goods_id}}">
+    <image src="{{pic}}"></image>
+    <view class="shareRight">
+        <text style="shareRighttitle">仅剩<text style="color:#DF2F22">{{group.neednum-group.buynum}}</text>个名额</text>
+        <view class="leftTop shareRight">
+            <view wx:if="{{goods.spec.length!=0}}">
+                <text>￥{{goods.groupprice}}</text>
+                <text style="font-size:20rpx;">￥{{goods.marketprice}}</text>
+            </view>
+            <view wx:else>
+                <text>￥{{goods.groupprice}}</text>
+                <text style="font-size:20rpx;">￥{{goods.marketprice}}</text>
+            </view>
+        </view>
+        <text class="gobug">限时抢购</text>
+    </view>
+</view>
+<view class="rowline"></view>
+<view class="shareMain">
+    <view class="grouppic">
+        <view wx:for="{{group.userlist}}">
+            <image src="{{item.avatar}}" wx:if="{{item.avatar!=null}}"></image>
+            <image src="../../../resource/images/mpic.png" style="border:4rpx solid transparent;" wx:else></image>
+            <view class="head" wx:if="{{item.ishead==1}}">团长</view>
+        </view>
+    </view>
+    <button class="sharefriend" wx:if="{{group.neednum==group.buynum}}">拼团成功</button>
+    <button class="sharefriend" openType="share" wx:else>邀请好友参团
+    <text>{{group.clock}}</text> 后结束</button>
+</view>
+<view class="rowline"></view>
+<view bindtap="showDetail" class="gogoods" data-id="{{goods.goods_id}}">
+    <text>商品名称</text>
+    <view class="gogoods_right">
+        <text>{{group.goods_name}}</text>
+        <image src="../../../resource/images/right6.png"></image>
+    </view>
+</view>
+<view class="gogoods">
+    <text>参团时间</text>
+    <view class="gogoods_right">
+        <text>{{group.starttime}}</text>
+    </view>
+</view>
+<view class="gogoods">
+    <text>拼团须知</text>
+    <view class="gogoods_right">
+        <text style="max-width:100%;font-size:26rpx;color:#A8A8A8;"> ·说明 ·好友参团 ·人满发货 ·人不满退款</text>
+    </view>
+</view>
+<view bindtap="setModalStatus" catchtouchmove="preventTouchMove" class="drawer_screen" data-status="0" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" catchtouchmove="preventTouchMove" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+    <view class="drawer_attr_content">
+        <view class="drawerTop">
+            <image src="{{pic}}" wx:if="{{goods.spec.length!=0}}"></image>
+            <image src="{{goods.thumbs[0]}}" wx:else></image>
+            <view class="drawerMiddle" wx:if="{{goods.spec.length!=0}}">
+                <text>{{goods.title}}</text>
+                <text wx:if="{{types=='single'}}">￥{{price.option_costprice}}</text>
+                <text wx:else>￥{{price.option_marketprice}}</text>
+            </view>
+            <view class="drawerMiddle" wx:else>
+                <text>{{goods.title}}</text>
+                <text wx:if="{{types=='single'}}">￥{{goods.singleprice}}</text>
+                <text wx:else>￥{{goods.groupprice}}</text>
+            </view>
+            <view bindtap="setModalStatus" class="close_icon" data-status="0">×</view>
+        </view>
+        <view class="specList" wx:if="{{goods.spec.length!=0}}">
+            <view class="view-sub-prop" wx:for="{{goods.spec}}" wx:for-index="pos">
+                <text class="text-prop">{{item.spec_title}}</text>
+                <view class="view-btns">
+                    <text bindtap="propClick" class="{{textStates[item.isClick]}}" data-index="{{pos}}" data-pos="{{index}}" wx:for="{{item.item}}">{{item.item_title}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="count">
+            <text class="text-prop">购买数量</text>
+            <view>
+                <view class="stepper">
+                    <text bindtap="bindMinus" class="normal" data-index="{{index}}">-</text>
+                    <input bindchange="bindManual" data-index="{{index}}" type="number" value="{{goods_num}}"></input>
+                    <text bindtap="bindPlus" class="normal" data-index="{{index}}">+</text>
+                </view>
+            </view>
+        </view>
+        <view bindtap="addCart" class="submit">确定</view>
+    </view>
+</view>

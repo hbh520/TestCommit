@@ -1,0 +1,87 @@
+<view class="parent">
+    <view bindtap="addressSelect" class="view-address" style="height:100rpx;" wx:if="{{address.length==0}}">
+        <view class="view-addressleft">
+            <view style="width:14%;display:flex;flex-direction:row;justify-content:center;align-items:cneter">
+                <image src="../../../resource/images/add.png" style="width:42rpx;height:42rpx;"></image>
+            </view>
+            <view class="view-addressleft-info">
+                <text style="font-size:30rpx;color:#333;margin-right:20rpx;">添加收货地址</text>
+            </view>
+        </view>
+        <view class="view-addressright">
+            <image src="../../../resource/images/right.png"></image>
+        </view>
+    </view>
+    <view bindtap="addressSelect" class="view-address" wx:else>
+        <view class="view-addressleft">
+            <view style="width:14%;display:flex;flex-direction:row;justify-content:center;align-items:cneter">
+                <image src="../../../resource/images/addres.png"></image>
+            </view>
+            <view class="view-addressleft-info">
+                <text class="text-name">
+                    <text style="font-size:30rpx;color:#333;font-weight:bold;margin-right:20rpx;">{{address[0].realname}}</text>{{address[0].mobile}}</text>
+                <text class="text-address">收货地址:{{address[0].address}}</text>
+            </view>
+        </view>
+        <view class="view-addressright">
+            <image src="../../../resource/images/right.png"></image>
+        </view>
+    </view>
+    <image src="../../../resource/images/line.png" style="width:100%;height:4rpx;"></image>
+    <view class="class-line1"></view>
+    <view class="view-title">
+        <image src="../../../resource/images/icon_order.png"></image>
+        <text>拼团</text>
+    </view>
+    <view class="class-line"></view>
+    <view class="container carts-list">
+        <view class="carts-item">
+            <view>
+                <image class="carts-image" mode="aspectFill" src="{{goods.pic}}"></image>
+            </view>
+            <view class="carts-text">
+                <text class="carts-title">{{goods.title}}</text>
+                <text class="carts-key-name">{{spec.option_title}}</text>
+                <view class="carts-subtitle" wx:if="{{spec==undefined}}">
+                    <text class="text-red" wx:if="{{types=='single'}}">￥{{goods.singleprice}}</text>
+                    <text class="text-red" wx:else>￥{{goods.groupprice}}</text>
+                </view>
+                <view class="carts-subtitle" wx:else>
+                    <text class="text-red" wx:if="{{types=='single'}}">￥{{spec.option_productprice}}</text>
+                    <text class="text-red" wx:else>￥{{spec.option_marketprice}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="count">
+        <text class="text-prop">购买数量</text>
+        <view>
+            <view class="stepper">
+                <text bindtap="bindMinus" class="normal">-</text>
+                <input bindchange="bindManual" type="number" value="{{goods_num}}"></input>
+                <text bindtap="bindPlus" class="normal">+</text>
+            </view>
+        </view>
+    </view>
+    <view hidden class="view-freemoney">
+        <text class="text-hint">使用积分:</text>
+        <input bindchange="bindChangeOfPoint" class="input-money" placeholder="输入积分" placeholderStyle="color:#999999"></input>
+        <text bindtap="use_point" class="btn-use">使用</text>
+        <text class="text-hint1">您的可用积分{{pay_points}}</text>
+    </view>
+    <view class="class-line1"></view>
+    <view class="pay">
+        <view class="payleft">
+            <image src="../../../resource/images/pay.png"></image>
+            <text>微信支付</text>
+        </view>
+        <image src="../../../resource/images/pay1.png" style="width:32rpx;height:26rpx;"></image>
+    </view>
+    <view class="submit">
+        <view class="subLeft">
+            <text style="font-size:30rpx;color:#333;">实付:</text>
+            <text class="text-red">￥{{total}}</text>
+        </view>
+        <view bindtap="formSubmit" class="text-save">立即支付</view>
+    </view>
+</view>

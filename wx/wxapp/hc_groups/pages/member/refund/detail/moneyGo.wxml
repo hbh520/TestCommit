@@ -1,0 +1,56 @@
+<view class="container">
+    <view class="top">
+        <view>退款金额</view>
+        <view>￥{{moneyGo.applyprice}}</view>
+        <view style="padding-bottom:10rpx;">已退款：微信支付用户的零钱</view>
+        <view class="row">
+            <text>账号</text>
+            <view class="rowright">
+                <image src="{{moneyGo.avatar}}"></image>
+                <text style="color:#454547;font-size:30rpx;font-weight:normal;">{{moneyGo.nickname}}</text>
+            </view>
+        </view>
+        <view class="row">
+            <text>支付方式</text>
+            <text style="color:#454547;">微信支付</text>
+        </view>
+    </view>
+    <view class="mainDetail">
+        <view class="shipping">
+            <view class="shippingLeft">
+                <image src="../../../../resource/images/duihao.png"></image>
+            </view>
+            <view class="shippingRight">
+                <view class="rightRow">
+                    <text style="color:#35C231;">商家同意退款</text>
+                    <text>{{moneyGo.refundtime}}</text>
+                </view>
+                <text>系统会在1-2天内提交微信支付处理</text>
+            </view>
+        </view>
+        <view class="shipping">
+            <view class="shippingLeft">
+                <image src="../../../../resource/images/duihao.png"></image>
+            </view>
+            <view class="shippingRight">
+                <view class="rightRow">
+                    <text style="color:#35C231;">已退款，微信支付处理中</text>
+                    <text>{{moneyGo.refundtime}}</text>
+                </view>
+                <text>拼团已将退款资金提交给微信处理，通常情况下，退款会原路路退回您的支付方式，微信零钱会在20分钟内到账，银行卡会在1-3个人工作日到账</text>
+            </view>
+        </view>
+        <view class="shipping">
+            <view class="shippingLeft" style="border-right:none;">
+                <image src="../../../../resource/images/duihao.png"></image>
+            </view>
+            <view class="shippingRight">
+                <view class="rightRow">
+                    <text style="color:#35C231;">到账成功</text>
+                    <text>{{moneyGo.backtime}}</text>
+                </view>
+                <text>已退到：微信支付用户的零钱</text>
+            </view>
+        </view>
+    </view>
+</view>

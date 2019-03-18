@@ -1,0 +1,58 @@
+<template name="buy">
+    <view class="goodsMain">
+        <view class="goodsMaintop">
+            <image src="{{pic}}"></image>
+            <view class="goodsMainright">
+                <view class="goodsrightMain">
+                    <view class="goodsrightMaintop">
+                        <text class="goodsrightMaintoptitle">{{group.goods_name}}</text>
+                    </view>
+                    <view>
+                        <text style="color:#8F8F8F;font-size:24rpx;">{{group.neednum}}人团</text>
+                        <view class="carts-subtitle" style="font-size:30rpx;" wx:if="{{spec==undefined}}">
+                            <text class="text-red" wx:if="{{types=='single'}}">￥{{goods.singleprice}}</text>
+                            <text class="text-red" wx:else>￥{{goods.groupprice}}</text>
+                        </view>
+                        <view class="carts-subtitle" style="font-size:30rpx;" wx:else>
+                            <text class="text-red" wx:if="{{types=='single'}}">￥{{spec.option_costprice}}</text>
+                            <text class="text-red" wx:else>￥{{spec.option_marketprice}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="promise">
+            <view>
+                <image src="../../../resource/images/confirm.png"></image>
+                <text>全场包邮</text>
+            </view>
+            <view>
+                <image src="../../../resource/images/confirm.png"></image>
+                <text>7天包退</text>
+            </view>
+            <view>
+                <image src="../../../resource/images/confirm.png"></image>
+                <text>假一赔百</text>
+            </view>
+        </view>
+        <view class="shareMain">
+            <view class="grouppic">
+                <view wx:for="{{group.userlist}}">
+                    <image src="{{item.avatar}}" wx:if="{{item.avatar!=null}}"></image>
+                    <image src="../../../resource/images/mpic.png" style="border:4rpx solid transparent;" wx:else></image>
+                    <view class="head" wx:if="{{item.ishead==1}}">团长</view>
+                </view>
+            </view>
+            <view style="text-align:center;width:100%;margin:20rpx 0;">
+                <text class="shareRighttitle">仅剩{{group.neednum-group.buynum}}个名额，<text>{{group.clock}}</text>后结束</text>
+            </view>
+            <button bindtap="setModalStatus" class="sharefriend" data-status="1" data-types="group">参与活动</button>
+        </view>
+        <view class="gogoods" style="border-top:2rpx solid #f5f5f5;">
+            <text>拼团须知</text>
+            <view class="gogoods_right">
+                <text style="max-width:100%;font-size:26rpx;color:#A8A8A8;"> ·说明 ·好友参团 ·人满发货 ·人不满退款</text>
+            </view>
+        </view>
+    </view>
+</template>

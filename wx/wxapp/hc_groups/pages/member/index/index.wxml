@@ -1,0 +1,81 @@
+<view>
+    <view class="userinfo">
+        <image backgroundSize="cover" bindtap="" class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+        <view class="classname">
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </view>
+    </view>
+    <view class="orders">
+        <view bindtap="navigateToOrder" class="ordersTop" data-cid="">
+            <text>我的订单</text>
+            <view class="ordersRight">
+                <text>全部订单</text>
+                <image src="../../../resource/images/right111.png"></image>
+            </view>
+        </view>
+        <view class="order-area">
+            <view bindtap="navigateToOrder" class="order" data-cid="WAIT_PAY">
+                <view style="height:20px;">
+                    <image src="../../../resource/images/order1.png"></image>
+                    <view class="num" wx:if="{{orderNum.waitpay!=0}}">{{orderNum.waitpay}}</view>
+                </view>
+                <text>待付款</text>
+            </view>
+            <view bindtap="navigateToOrder" class="order" data-cid="WAIT_SHARE">
+                <view style="height:20px;">
+                    <image src="../../../resource/images/order2.png"></image>
+                    <view class="num" wx:if="{{orderNum.waitshare!=0}}">{{orderNum.waitshare}}</view>
+                </view>
+                <text>待分享</text>
+            </view>
+            <view bindtap="navigateToOrder" class="order" data-cid="WAIT_SEND">
+                <view style="height:20px;">
+                    <image src="../../../resource/images/order4.png"></image>
+                    <view class="num" wx:if="{{orderNum.waitsend!=0}}">{{orderNum.waitsend}}</view>
+                </view>
+                <text>待发货</text>
+            </view>
+            <view bindtap="navigateToOrder" class="order" data-cid="WAIT_GET">
+                <view style="height:20px;">
+                    <image src="../../../resource/images/order3.png"></image>
+                    <view class="num" wx:if="{{orderNum.waitget!=0}}">{{orderNum.waitget}}</view>
+                </view>
+                <text>待收货</text>
+            </view>
+            <view bindtap="navigateToOrder" class="order" data-cid="WAIT_COMMENT">
+                <view style="height:20px;">
+                    <image src="../../../resource/images/order5.png"></image>
+                    <view class="num" wx:if="{{orderNum.waitcomment!=0}}">{{orderNum.waitcomment}}</view>
+                </view>
+                <text>待评价</text>
+            </view>
+        </view>
+    </view>
+    <view class="fuck">
+        <view class="fuckLeft">
+            <image src="../../../resource/images/fuck1.png"></image>
+        </view>
+        <view bindtap="refund" class="fuckRight">
+            <text>退款/售后</text>
+            <image src="../../../resource/images/right6.png"></image>
+        </view>
+    </view>
+    <view class="fuck">
+        <view class="fuckLeft">
+            <image src="../../../resource/images/fuck2.png" style="width:32rpx;"></image>
+        </view>
+        <view bindtap="navigateToAddress" class="fuckRight">
+            <text>收货地址</text>
+            <image src="../../../resource/images/right6.png"></image>
+        </view>
+    </view>
+    <view class="fuck">
+        <view class="fuckLeft">
+            <image src="../../../resource/images/fuck3.png"></image>
+        </view>
+        <view class="fuckRight">
+            <button openType="contact" sessionFrom="weapp">官方客服</button>
+            <image src="../../../resource/images/right6.png"></image>
+        </view>
+    </view>
+</view>

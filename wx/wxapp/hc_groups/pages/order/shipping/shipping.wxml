@@ -1,0 +1,39 @@
+<view class="container">
+    <view class="main">
+        <view class="mainTop">
+            <view class="mainLeft">
+                <image src="{{shipping.thumb}}"></image>
+            </view>
+            <view class="mainRight">
+                <view>
+                    <text class="company">物流公司:</text>
+                    <text class="com">{{shipping.expresscom}}</text>
+                </view>
+                <view>
+                    <text>运单编号:</text>
+                    <text class="num">{{shipping.nu}}</text>
+                    <text bindtap="copy" class="copy">复制</text>
+                </view>
+            </view>
+        </view>
+        <view class="mainDetail">
+            <view class="mianDetailTop">
+                <text>订单跟踪</text>
+            </view>
+            <view class="shipping" wx:for="{{shipList}}">
+                <view class="shippingLeft">
+                    <image src="../../../resource/images/first.png" wx:if="{{index==0}}"></image>
+                    <image src="../../../resource/images/all.png" wx:else></image>
+                </view>
+                <view class="shippingRight" style="color:#4DCA95;" wx:if="{{index==0}}">
+                    <text>{{item.context}}</text>
+                    <text>{{item.ftime}}</text>
+                </view>
+                <view class="shippingRight" wx:else>
+                    <text>{{item.context}}</text>
+                    <text>{{item.ftime}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

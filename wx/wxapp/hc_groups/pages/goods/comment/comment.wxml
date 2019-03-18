@@ -1,0 +1,16 @@
+<view class="commentMain" wx:for="{{comment}}">
+    <view class="commentTtitle">
+        <view class="titleLeft">
+            <image src="{{item.headimgurl}}" style="border-radius: 50%;" wx:if="{{item.openid!=''}}"></image>
+            <image src="../../../resource/images/avatar.png" style="border-radius: 50%;" wx:if="{{item.openid==''}}"></image>
+            <text wx:if="{{item.openid!=''}}">{{item.nickname}}</text>
+            <text wx:if="{{item.openid==''}}">匿名用户</text>
+        </view>
+        <text style="color:#8D8D8D">{{item.createtime}}</text>
+    </view>
+    <text style="color:#666666;font-size:30rpx;">{{item.content}}</text>
+    <view class="commentImg" wx:if="{{item.img.length!=0}}">
+        <image src="{{item}}" wx:for="{{item.img}}"></image>
+    </view>
+    <text style="color:#666666;font-size:30rpx;" wx:if="{{item.option_title!=null}}">{{item.option_title}}</text>
+</view>

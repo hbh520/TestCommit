@@ -1,0 +1,23 @@
+<view bindtap="showDetail" class="goods" data-id="{{item.goods_id}}" wx:for="{{goods}}" wx:key="index">
+    <view class="goodsLeft">
+        <image src="{{item.thumb}}"></image>
+    </view>
+    <view class="goodsRight">
+        <view>
+            <text class="shopName">{{item.title}}</text>
+            <view class="goodsBuy">
+                <image src="{{item.avatar}}" wx:for="{{item.user}}" wx:key="index"></image>
+            </view>
+        </view>
+        <view class="goodsPrice">
+            <view class="goodsleft">
+                <text>已团{{item.sales_num}}件</text>
+                <text>￥{{item.groupprice}}</text>
+            </view>
+            <view class="goodsright">
+                <text>去开团</text>
+                <image src="../../../resource/images/white_hint.png"></image>
+            </view>
+        </view>
+    </view>
+</view>

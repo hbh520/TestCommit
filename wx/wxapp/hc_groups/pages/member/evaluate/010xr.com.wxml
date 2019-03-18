@@ -1,0 +1,57 @@
+<view class="parent">
+    <view class="top">
+        <view>
+            <image src="{{pic}}"></image>
+        </view>
+        <view bindtap="click" data-index="{{0}}">
+            <image src="../../../resource/images/great.png" wx:if="{{select[0]==false}}"></image>
+            <image src="../../../resource/images/selgreat.png" wx:else></image>
+            <text wx:if="{{select[0]==false}}">好评</text>
+            <text style="color:#FD5200;" wx:else>好评</text>
+        </view>
+        <view bindtap="click" data-index="{{1}}">
+            <image src="../../../resource/images/justsoso.png" wx:if="{{select[1]==false}}"></image>
+            <image src="../../../resource/images/seljustsoso.png" wx:else></image>
+            <text wx:if="{{select[1]==false}}">中评</text>
+            <text style="color:#FD5200;" wx:else>中评</text>
+        </view>
+        <view bindtap="click" data-index="{{2}}">
+            <image src="../../../resource/images/bad.png" wx:if="{{select[2]==false}}"></image>
+            <image src="../../../resource/images/selbad.png" wx:else></image>
+            <text wx:if="{{select[2]==false}}">差评</text>
+            <text style="color:#FD5200;" wx:else>差评</text>
+        </view>
+    </view>
+    <view class="section">
+        <textarea bindblur="blur" class="tt-evaluate" placeholder="对您的商品评价" placeholderClass="tt-place-evaluate" showConfirmBar="{{show}}"></textarea>
+    </view>
+    <view class="upphoto">
+        <image bindlongpress="longtap" data-index="{{index}}" src="{{item}}" wx:for="{{logo}}"></image>
+        <image bindtap="chooseImageTap" src="../../../resource/images/upphoto.png"></image>
+    </view>
+    <view bindtap="noname" class="noname" data-index="{{0}}">
+        <view class="no">
+            <image src="../../../resource/images/selnoname.png" wx:if="{{noname[0]==true}}"></image>
+            <image src="../../../resource/images/noname.png" wx:else></image>
+            <text wx:if="{{noname[0]==true}}">匿名</text>
+            <text wx:else>不匿名</text>
+        </view>
+        <text wx:if="{{noname[0]==true}}">您写的评价会以匿名形式展示</text>
+    </view>
+    <view class="content">
+        <text class="text-pf">评分</text>
+        <view class="v-xx">
+            <text class="text-pf">描述相符：</text>
+            <image bindtap="starsDesc" src="{{starsDescIMG}}"></image>
+        </view>
+        <view class="v-xx">
+            <text class="text-pf">物流服务：</text>
+            <image bindtap="starsKF" src="{{starsKFIMG}}"></image>
+        </view>
+        <view class="v-xx">
+            <text class="text-pf">服务态度：</text>
+            <image bindtap="starsShipper" src="{{starsShipperIMG}}"></image>
+        </view>
+    </view>
+    <text bindtap="formSubmit" class="text-save">提交</text>
+</view>

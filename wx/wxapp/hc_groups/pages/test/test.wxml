@@ -1,0 +1,3 @@
+<view class="section tc">
+    <video autoplay="{{autoplay}}" bindended="end" bindpause="pause" bindtap="play" controls="{{controls}}" data-id="{{item.id}}" data-index="{{index}}" data-satus="{{item.status}} " id="{{item.id}}" initialTime="1" showCenterPlayBtn="{{!loop}}" showFullscreenBtn="false" showPlayBtn="{{loop}}" showProgress="false" src="{{item.src}}" wx:for="{{videos}}" wx:key="index"></video>
+</view>

@@ -1,0 +1,24 @@
+<view wx:for="{{goodsList}}" wx:key="index">
+    <view class="container-class">
+        <view class="main-goods">
+            <view class="goodsDe goosss">
+                <view bindtap="showDetail" class="single-goods pingding" data-id="{{item.goods_id}}" data-index="{{index}}">
+                    <image class="tupisans" src="{{item.thumb}}"></image>
+                    <view class="summa">
+                        <text class="title">{{item.title}}</text>
+                        <view class="goods_foot">
+                            <view class="goods_left">
+                                <text class="prices">￥{{item.groupprice}}</text>
+                                <text style="font-size:24rpx;color:#A0A0A0;">已团10件</text>
+                            </view>
+                            <view class="goods_right">
+                                <text>去开团</text>
+                                <image src="../../../resource/images/white_hint.png"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

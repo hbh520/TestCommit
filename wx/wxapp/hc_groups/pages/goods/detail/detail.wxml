@@ -1,0 +1,226 @@
+<import src="../../../../wxParse/wxParse.wxml"></import>
+<view class="parent" wx:if="{{tab==0}}">
+    <swiper circular="true" class="images" duration="1000" indicatorDots="true" interval="5000" style="height:{{galleryHeight}}px;">
+        <swiper-item wx:for="{{goods.thumbs}}">
+            <image bindtap="previewImage" class="swiper-image" data-current="{{index}}" data-index="{{index}}" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+    <view class="detailTop">
+        <view class="topLeft">
+            <view class="leftTop">
+                <view wx:if="{{goods.spec.length!=0}}">
+                    <text>￥{{goods.groupprice}}</text>
+                    <text>￥{{goods.marketprice}}</text>
+                    <text>拼团价</text>
+                </view>
+                <view wx:else>
+                    <text>￥{{goods.groupprice}}</text>
+                    <text>￥{{goods.marketprice}}</text>
+                    <text>拼团价</text>
+                </view>
+            </view>
+            <view class="letFoot">
+                <text>已团{{seal}}件,{{goods.peoplenumber}}人团</text>
+            </view>
+        </view>
+        <view class="topRight">
+            <button openType="share">
+                <image src="../../../resource/images/share.png"></image>
+            </button>
+            <text>分享</text>
+        </view>
+    </view>
+    <view>
+        <text class="title" style="display:block;">{{goods.title}}</text>
+    </view>
+    <view style="border-bottom:2rpx solid #F3F3F3;width:94%;padding:0rpx 3% 20rpx;color:#6B6B6B;font-size:26rpx;text-indent: 40rpx;" wx:if="{{goods.description!=null}}">
+    {{goods.description}}
+  </view>
+    <view class="promise">
+        <view>
+            <image src="../../../resource/images/confirm.png"></image>
+            <text>店铺认证</text>
+        </view>
+        <view>
+            <image src="../../../resource/images/confirm.png"></image>
+            <text>担保交易</text>
+        </view>
+        <view>
+            <image src="../../../resource/images/confirm.png"></image>
+            <text>48H发货</text>
+        </view>
+        <view>
+            <image src="../../../resource/images/confirm.png"></image>
+            <text>全场包邮</text>
+        </view>
+    </view>
+    <view class="rowline"></view>
+    <view bindtap="pintuan" class="spec" data-status="1">
+        <text>{{group.length}}人在开团，可直接参与</text>
+        <view style="display: flex;align-items: center;font-size:24rpx;">
+            <text style="color:#CCCCCC;">查看更多</text>
+            <image src="../../../resource/images/right.png"></image>
+        </view>
+    </view>
+    <swiper autoplay="false" circular="true" duration="1000" interval="5000" style="height:110px;" vertical="true" wx:if="{{group!=null}}">
+        <swiper-item wx:for="{{group}}" wx:key="index">
+            <view class="pintuanmain" style="width:94%;padding:10rpx 3%;" wx:for="{{item}}" wx:key="index">
+                <view style="width:15%;">
+                    <image src="{{item.head.avatar}}"></image>
+                </view>
+                <view class="mainRigth">
+                    <view class="main-top">
+                        <view style="display:flex;align-items:center;">
+                            <text style="color:#0C0D0D;margin-right:10rpx;overflow:hidden;display:inline-block;min-width:50rpx;max-width:100px;text-overflow:ellipsis;white-space:nowrap;">{{item.head.nickname}}</text>
+                            <text style="font-size:22rpx;">还差{{item.neednum-item.buynum}}人</text>
+                        </view>
+                        <view style="font-size:24rpx;">剩余{{item.clock}}</view>
+                    </view>
+                    <view bindtap="setModalStatus" class="main-right" data-groupid="{{item.id}}" data-status="1" data-types="group">去参团</view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="rowline"></view>
+    <view bindtap="pintuan" catchtouchmove="preventTouchMove" class="drawer_screen" data-status="0" wx:if="{{pintuan}}"></view>
+    <view animation="{{animationData}}" catchtouchmove="preventTouchMove" class="middelbox" wx:if="{{pintuan}}">
+        <view class="close">
+            <image bindtap="pintuan" data-status="0" src="../../../resource/images/close.png"></image>
+        </view>
+        <view class="pintuantitle">正在开团</view>
+        <scroll-view>
+            <view class="pintuanList">
+                <view class="pintuanmain" wx:for="{{grouplist}}" wx:key="index">
+                    <view style="width:15%;">
+                        <image src="{{item.head.avatar}}"></image>
+                    </view>
+                    <view class="mainRigth">
+                        <view class="main-top">
+                            <view style="display:flex;align-items:center;">
+                                <text style="color:#0C0D0D;overflow:hidden;display:inline-block;min-width:50rpx;font-size:22rpx;max-width:100px;text-overflow:ellipsis;white-space:nowrap;">{{item.head.nickname}}</text>
+                                <text style="margin-left:10rpx;font-size:22rpx;">还差{{item.neednum-item.buynum}}人</text>
+                            </view>
+                            <view style="font-size:24rpx;">剩余{{item.clock}}</view>
+                        </view>
+                        <view bindtap="setModalStatus" class="main-right" data-groupid="{{item.id}}" data-status="1" data-types="group">去参团</view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="pintuanfooter">仅显示10个正在开团的人</view>
+    </view>
+    <view class="comment">
+        <view class="commentTop">
+            <text>买家评论</text>
+            <view style="display: flex;align-items: center;">
+                <text bindtap="Allcomment" data-id="{{goods.goods_id}}" style="color:#CCCCCC;font-size:24rpx;">查看更多</text>
+                <image src="../../../resource/images/right.png"></image>
+            </view>
+        </view>
+        <view class="commentMain" wx:for="{{goods.comment}}" wx:key="index">
+            <view class="commentTtitle">
+                <view class="titleLeft">
+                    <image src="{{item.headimgurl}}" wx:if="{{item.openid!=''}}"></image>
+                    <image src="../../../resource/images/avatar.png" wx:if="{{item.openid==''}}"></image>
+                    <text wx:if="{{item.openid!=''}}">{{item.nickname}}</text>
+                    <text wx:if="{{item.openid==''}}">匿名用户</text>
+                </view>
+                <text style="color:#8D8D8D">{{item.createtime}}</text>
+            </view>
+            <text style="color:#666666;">{{item.content}}</text>
+            <text wx:if="{{item.option_title!=null}}">规格：{{item.option_title}}</text>
+        </view>
+    </view>
+    <view bindtap="setModalStatus" catchtouchmove="preventTouchMove" class="drawer_screen" data-status="0" wx:if="{{showModalStatus}}"></view>
+    <view animation="{{animationData}}" catchtouchmove="preventTouchMove" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+        <view class="drawer_attr_content">
+            <view class="drawerTop">
+                <image src="{{pic}}" wx:if="{{goods.spec.length!=0}}"></image>
+                <image src="{{goods.thumbs[0]}}" wx:else></image>
+                <view class="drawerMiddle" wx:if="{{goods.spec.length!=0}}">
+                    <text>{{goods.title}}</text>
+                    <text wx:if="{{types=='single'}}">￥{{price.option_productprice}}</text>
+                    <text wx:else>￥{{price.option_marketprice}}</text>
+                </view>
+                <view class="drawerMiddle" wx:else>
+                    <text>{{goods.title}}</text>
+                    <text wx:if="{{types=='single'}}">￥{{goods.singleprice}}</text>
+                    <text wx:else>￥{{goods.groupprice}}</text>
+                </view>
+                <view bindtap="setModalStatus" class="close_icon" data-status="0">×</view>
+            </view>
+            <view class="specList" wx:if="{{goods.spec.length!=0}}">
+                <view class="view-sub-prop" wx:for="{{goods.spec}}" wx:for-index="pos" wx:key="index">
+                    <text class="text-prop">{{item.spec_title}}</text>
+                    <view class="view-btns">
+                        <text bindtap="propClick" class="{{textStates[item.isClick]}}" data-index="{{pos}}" data-pos="{{index}}" wx:for="{{item.item}}" wx:key="index">{{item.item_title}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="count">
+                <text class="text-prop">购买数量</text>
+                <view>
+                    <view class="stepper">
+                        <text bindtap="bindMinus" class="normal" data-index="{{index}}">-</text>
+                        <input bindchange="bindManual" data-index="{{index}}" type="number" value="{{goods_num}}"></input>
+                        <text bindtap="bindPlus" class="normal" data-index="{{index}}">+</text>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="addCart" class="submit">确定</view>
+        </view>
+    </view>
+    <view class="rowline"></view>
+</view>
+<view class="detail">
+    <text>商品详情</text>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+</view>
+<view class="footer" hidden="{{show1}}">
+    <view bindtap="home" class="footer-item">
+        <image src="../../../resource/images/1.png"></image>
+        <text>首页</text>
+    </view>
+    <view class="footer-item" style="display:none;">
+        <contact-button sessionFrom="weapp" size="20" style="opacity:0.3" type="default-dark"></contact-button>
+        <text style="margin-top:10rpx;">联系客服</text>
+    </view>
+    <view class="footer-item">
+        <button openType="contact" sessionFrom="weapp">
+            <image src="../../../resource/images/kf.png"></image>
+        </button>
+        <text>客服</text>
+    </view>
+    <view class="nokey">
+        <view bindtap="setModalStatus" class="add-cart" data-status="1" data-types="single">
+            <text>￥{{goods.singleprice}}</text>
+            <text>单独购买</text>
+        </view>
+        <view bindtap="setModalStatus" class="btn-bug" data-status="1" data-types="group">
+            <text>￥{{goods.groupprice}}</text>
+            <text>{{goods.peoplenumber}}人团</text>
+        </view>
+    </view>
+</view>
+<view class="footer" hidden="{{show}}">
+    <view bindtap="home" class="footer-item">
+        <image src="../../../resource/images/1.png"></image>
+        <text>首页</text>
+    </view>
+    <view class="footer-item" style="display:none;">
+        <contact-button sessionFrom="weapp" size="20" style="opacity:0.3" type="default-dark"></contact-button>
+        <text style="margin-top:10rpx;">联系客服</text>
+    </view>
+    <view class="footer-item">
+        <button openType="contact" sessionFrom="weapp">
+            <image src="../../../resource/images/kf.png"></image>
+        </button>
+        <text>客服</text>
+    </view>
+    <view class="onekeyPin">
+        <view bindtap="setModalStatus" class="btnPin" data-status="1" data-types="group">
+            <text style="margin-right:10rpx;">￥{{goods.groupprice}}</text>
+            <text>一键拼</text>
+        </view>
+    </view>
+</view>

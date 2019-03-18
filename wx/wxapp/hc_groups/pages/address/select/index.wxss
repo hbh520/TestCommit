@@ -1,0 +1,101 @@
+page {
+    background: #eee;
+}
+
+.item {
+    margin-bottom: 20rpx;
+    background: #fff;
+    padding: 10rpx 20rpx 10rpx 20rpx;
+}
+
+.item .header {
+    font-size: 30rpx;
+    color: #333;
+    line-height: 72rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.item .header text {
+    margin-right: 40rpx;
+}
+
+.item .summary {
+    color: #999;
+    font-size: 29rpx;
+    line-height: 50rpx;
+}
+
+.item .footer {
+    border-top: 1px solid #ccc;
+    font-size: 30rpx;
+    color: #999;
+    padding-left: 10rpx;
+    padding-top: 10rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.set-default {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.set-default text {
+    font-size: 27rpx;
+    margin-left: 6rpx;
+}
+
+.item .footer .operation {
+    width: 280rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.item .footer .operation .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.item .footer .operation .container image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.item .footer .operation .container text {
+    margin-left: 6rpx;
+    font-size: 27rpx;
+}
+
+.address-list {
+    margin-bottom: 56px;
+}
+
+.address-add {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: orange;
+}

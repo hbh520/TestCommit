@@ -1,0 +1,81 @@
+<scroll-view>
+    <view class="class-tab">
+        <view bindtap="tabClick" class="{{tabClasss[0]}}" data-index="0">全部</view>
+        <view bindtap="tabClick" class="{{tabClasss[1]}}" data-index="1">待付款</view>
+        <view bindtap="tabClick" class="{{tabClasss[2]}}" data-index="2">待分享</view>
+        <view bindtap="tabClick" class="{{tabClasss[3]}}" data-index="3">待发货</view>
+        <view bindtap="tabClick" class="{{tabClasss[4]}}" data-index="4">待收货</view>
+        <view bindtap="tabClick" class="{{tabClasss[5]}}" data-index="5">已完成</view>
+    </view>
+</scroll-view>
+<view class="orders">
+    <view class="order" wx:for="{{orders}}" wx:key="{{index}}">
+        <view class="orderTitle">
+            <view class="orderTitleLeft">
+                <image src="../../../resource/images/icon_order.png"></image>
+                <text>{{title}}</text>
+            </view>
+            <text class="orderR" wx:if="{{item.status==1&&item.cancel==0}}">待付款</text>
+            <view wx:if="{{item.status==2}}">
+                <text class="orderR" wx:if="{{item.isshare==1}}">未成团，待成团</text>
+                <text class="orderR" wx:if="{{item.isshare==2}}">待发货</text>
+            </view>
+            <text class="orderR" wx:if="{{item.status==3}}">待收货</text>
+            <text class="orderR" wx:if="{{item.status==6}}">已退款</text>
+            <text class="orderR" wx:if="{{item.status==7||item.cancel==1}}">订单已取消</text>
+            <view wx:if="{{status==4}}">
+                <text class="orderR" wx:if="{{item.iscomment==0}}">待评价</text>
+                <text class="orderR" wx:else>已评价</text>
+            </view>
+        </view>
+        <view class="orderMain">
+            <view>
+                <image src="{{item.goods_thumb}}"></image>
+            </view>
+            <view bindtap="orderDetail" class="detail" data-cancel="{{item.cancel}}" data-finsh="{{item.finsh}}" data-goodsid="{{item.goods_id}}" data-groupid="{{item.groupid}}" data-id="{{item.id}}" data-iscomment="{{item.iscomment}}" data-isshare="{{item.isshare}}" data-pic="{{item.goods_thumb}}" data-status="{{item.status}}">
+                <view class="detailLeft">
+                    <text>{{item.goods_name}}</text>
+                    <text wx:if="{{item.option_title!=null}}">{{item.option_title}}</text>
+                </view>
+                <view class="detailRight">
+                    <text>￥{{item.unit_price}}</text>
+                    <text>x{{item.number}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="orderPrice">
+            <text>总计:￥{{item.fact_amount}}</text>
+        </view>
+        <view class="orderStatus" wx:if="{{item.status==1}}">
+            <text bindtap="delorder" data-id="{{item.id}}" data-index="{{index}}">删除订单</text>
+            <text bindtap="cancel" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.cancel==0}}">取消订单</text>
+            <text bindtap="gopay" class="pay" data-id="{{item.id}}" wx:if="{{item.cancel==0}}"> 去支付 </text>
+            <text class="pay" data-id="{{item.id}}" wx:if="{{item.cancel==1}}"> 已取消 </text>
+        </view>
+        <view class="orderStatus" wx:if="{{item.status==7}}">
+            <text bindtap="delorder" data-id="{{item.id}}" data-index="{{index}}">删除订单</text>
+            <text class="pay" data-id="{{item.id}}"> 已取消 </text>
+        </view>
+        <view class="orderStatus" wx:if="{{item.status==4}}">
+            <text bindtap="delorder" data-id="{{item.id}}" data-index="{{index}}">删除订单</text>
+            <text bindtap="showDetail" data-id="{{item.goods_id}}">再次购买</text>
+            <text bindtap="comment" class="pay" data-id="{{item.goods_id}}" data-index="{{index}}" data-orderid="{{item.id}}" data-pic="{{item.goods_thumb}}" wx:if="{{item.iscomment==0}}">立即评价</text>
+            <text bindtap="" class="pay" data-id="{{item.goods_id}}" data-orderid="{{item.id}}" data-pic="{{item.goods_thumb}}" wx:else>已评价</text>
+        </view>
+        <view class="orderStatus" wx:if="{{item.status==2}}">
+            <text bindtap="delorder" data-id="{{item.id}}" data-index="{{index}}">删除订单</text>
+            <text bindtap="showDetail" data-id="{{item.goods_id}}">再次购买</text>
+            <button data-goodsId="{{item.goods_id}}" data-groupid="{{item.groupid}}" data-id="{{item.id}}" data-index="{{index}}" openType="share" wx:if="{{item.isshare==1}}">邀请好友</button>
+        </view>
+        <view class="orderStatus" wx:if="{{item.status==3}}">
+            <text bindtap="delorder" data-id="{{item.id}}" data-index="{{index}}">删除订单</text>
+            <text bindtap="shipping" data-id="{{item.id}}" wx:if="{{item.finsh==0}}">查看物流</text>
+            <text bindtap="confirm" class="pay" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.finsh==0}}">确认收货</text>
+            <text class="pay" data-id="{{item.id}}" wx:if="{{item.finsh==1}}"> 已完成 </text>
+        </view>
+        <view class="orderStatus" wx:if="{{item.status==6}}">
+            <text bindtap="delorder" data-id="{{item.id}}" data-index="{{index}}">删除订单</text>
+            <text class="pay" data-id="{{item.id}}"> 已退款 </text>
+        </view>
+    </view>
+</view>

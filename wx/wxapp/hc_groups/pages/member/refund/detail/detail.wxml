@@ -1,0 +1,62 @@
+<view class="container">
+    <view class="top" wx:if="{{status==0}}">
+        <view>处理中</view>
+        <view>{{detail.reject_remark}}</view>
+    </view>
+    <view class="top" wx:if="{{status==1}}">
+        <view>退款成功</view>
+        <view>
+            <text>退款金额：</text>
+            <text style="color:#EA292A;">￥{{detail.refundmoney}}</text>
+        </view>
+    </view>
+    <view class="top" wx:if="{{status==3}}">
+        <view>申请被驳回</view>
+        <view>{{detail.reject_remark}}</view>
+    </view>
+    <view class="top" wx:if="{{status==2}}">
+        <view>申请已撤销</view>
+        <view>{{detail.reject_remark}}</view>
+    </view>
+    <view bindtap="jump" class="xieshang">
+        <text>协商详情</text>
+        <image src="../../../../resource/images/right6.png"></image>
+    </view>
+    <view class="row">
+        <text>退款类型：</text>
+        <text>{{detail.refundtype}}</text>
+    </view>
+    <view class="row">
+        <text>收货状态：</text>
+        <text>{{detail.shipstatus}}</text>
+    </view>
+    <view class="row">
+        <text>退款金额：</text>
+        <text>{{detail.refundmoney}}</text>
+    </view>
+    <view class="row">
+        <text>退款原因：</text>
+        <text>{{detail.reason}}</text>
+    </view>
+    <view class="row1">
+        <view>商品名称：</view>
+        <view>{{detail.thumb}}</view>
+    </view>
+    <view class="row">
+        <text>订单编号：</text>
+        <text>{{detail.orderno}}</text>
+    </view>
+    <view class="row" style="margin-bottom:120rpx;">
+        <text>申请时间：</text>
+        <text>{{detail.applytime}}</text>
+    </view>
+    <view catchtap="cancel" class="footer" data-id="{{detail.id}}" wx:if="{{status==0}}">
+        <button>撤销申请</button>
+    </view>
+    <view catchtap="moneyGo" class="footer" data-id="{{detail.id}}" wx:if="{{status==1}}">
+        <button>钱款去向</button>
+    </view>
+    <view catchtap="goreturn" class="footer" data-id="{{detail.id}}" data-money="{{detail.refundmoney}}" data-phone="{{detail.mobile}}" data-status="{{detail.shipstatus}}" wx:if="{{status==2}}">
+        <button>重新提交申请</button>
+    </view>
+</view>

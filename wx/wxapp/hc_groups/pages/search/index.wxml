@@ -1,0 +1,32 @@
+<view class="top">
+    <view class="search">
+        <image src="../../resource/images/search.png"></image>
+        <input bindinput="bindChange" placeholder="搜索" value="{{keywords}}"></input>
+    </view>
+    <text bindtap="search">搜索</text>
+</view>
+<view class="parent" hidden="{{!show}}">
+    <view class="view-hint">
+        <image src="/images/fire.png"></image>
+        <text class="text-prop">热门搜索</text>
+    </view>
+    <view class="view-btns">
+        <text bindtap="search1" class="view-btns-text-normal" data-index="{{index}}" wx:for="{{getkeywords}}">{{item.title}}</text>
+    </view>
+</view>
+<view class="goods" hidden="{{show}}" wx:if="{{goodsList.length!=0}}">
+    <view bindtap="showDetail" class="detail" data-id="{{item.goods_id}}" wx:for="{{goodsList}}" wx:key="index">
+        <image src="{{item.thumb}}"></image>
+        <text class="goodsName">{{item.title}}</text>
+        <view class="goodPrice">
+            <text>￥{{item.groupprice}}</text>
+            <view class="priceRight">
+                <image src="../../resource/images/hm_goods.jpg"></image>
+                <image src="../../resource/images/hm_goods.jpg"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="notice" wx:else>
+    <text>没有您搜索的商品</text>
+</view>

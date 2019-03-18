@@ -1,0 +1,3 @@
+<view bindtap="detail" class="container">
+    <image src="../../resource/images/icon_order.png"></image>
+</view>

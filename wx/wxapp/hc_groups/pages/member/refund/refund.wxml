@@ -1,0 +1,27 @@
+<view class="container">
+    <view bindtap="datail" class="orderList" data-id="{{item.id}}" data-status="{{item.refundstatus}}" wx:for="{{refundlist}}" wx:key="index">
+        <view class="title">
+            <view class="titleLeft">
+                <image src="../../../resource/images/icon_order.png"></image>
+                <text>拼团商城</text>
+            </view>
+            <text style="color:#EA292A;">{{item.status}}</text>
+        </view>
+        <view class="main">
+            <view style="width:30%;height:200rpx;">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view style="width:70%;padding-left:20rpx;">
+                <text>{{item.title}}</text>
+            </view>
+        </view>
+        <view class="footer">
+            <text style="margin-right:20rpx;">实付：￥{{item.paymoney}}</text>
+            <view>退款金额：<text style="color:#EA292A;">￥{{item.refundmoney}}</text>
+            </view>
+        </view>
+        <view catchtap="moneyGo" class="status" data-id="{{item.id}}" wx:if="{{item.refundstatus==1}}">
+            <view class="money">钱款去向</view>
+        </view>
+    </view>
+</view>

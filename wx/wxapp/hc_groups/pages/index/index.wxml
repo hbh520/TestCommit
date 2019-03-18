@@ -1,0 +1,97 @@
+<scroll-view scrollX class="tab" enableBackToTop="true" scrollLeft="{{moveleft}}" scrollWithAnimation="true">
+    <view class="tablist">
+        <view bindtap="click" class="item" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{category}}" wx:key="index">
+            <text class="{{height.index}}" style="padding-bottom:20rpx;">{{item.name}}</text>
+        </view>
+    </view>
+</scroll-view>
+<view hidden="{{!show}}">
+    <view class="hengdoa" style="padding-bottom:10rpx;">
+        <view bindtap="categoods" class="func-area" data-goods-id="{{item.id}}" data-id="{{item.id}}" style="padding-top:10rpx;width: 25%;" wx:for="{{navcategory.children}}" wx:key="{{index}}">
+            <image class="orange" mode="aspectFill" src="{{item.thumb}}"></image>
+            <text>{{item.name}}</text>
+        </view>
+        <view bindtap="allcategoods" class="func-area" data-id="{{id}}" style="padding-top:10rpx;width: 25%;" wx:if="{{navcategory.children.length>=7}}">
+            <image class="orange" mode="aspectFill" src="../../resource/images/allCate.png"></image>
+            <text>查看全部</text>
+        </view>
+    </view>
+    <view class="goods">
+        <view bindtap="showDetail" class="detail" data-id="{{item.goods_id}}" wx:for="{{categorygoods}}" wx:key="index">
+            <image src="{{item.thumb}}"></image>
+            <view class="goodsName" style="height:46px;">{{item.title}}</view>
+            <view class="goodPrice">
+                <text>￥{{item.groupprice}}</text>
+                <view class="priceRight">
+                    <text style="font-size:12px;color:#A0A0A0;">已团{{item.sales_num}}件</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view hidden="{{show}}">
+    <view class="banner" style="padding:0;margin:0;">
+        <swiper autoplay="true" circular="true" class="swiper" duration="1000" indicatorActiveColor="#ea292a" indicatorColor="#fff" indicatorDots="true" interval="5000" style="width:100%;height:140px;padding:0;margin:0;">
+            <swiper-item style="padding:0;margin:0;height:140px;" wx:for="{{banner}}">
+                <!-- <image bindtap="showDetail" class="swiper-image" data-id="{{item.link}}" data-index="{{index}}" src="{{item.thumb}}"></image> -->
+            </swiper-item>
+        </swiper>
+    </view>
+    <scroll-view scrollX bindscroll="scroll" style="padding:0;margin:0;">
+        <view class="hengdoa" style="width:120%;">
+            <view bindtap="navgoods" class="func-area" data-id="{{item.id}}" data-url="{{item.url}}" style="padding-top:10rpx;width:{{windowWidth}}px;" wx:for="{{nav}}" wx:key="{{index}}">
+                <image class="orange" src="{{item.icon}}"></image>
+                <text>{{item.name}}</text>
+            </view>
+        </view>
+    </scroll-view>
+    <view style="background:#fff;padding:16rpx 0 16rpx;">
+        <view class="line">
+            <view class="Nline" style="left:{{moveWidth}}%"></view>
+        </view>
+    </view>
+    <view wx:for="{{hotgoods}}" wx:key="index">
+        <view class="container-class" wx:if="{{item.length==null}}">
+            <view class="main-goods">
+                <view class="goodsDe goosss">
+                    <view bindtap="showDetail" class="single-goods pingding" data-id="{{item.goods_id}}" data-index="{{index}}">
+                        <image class="tupisans" src="{{item.thumb}}"></image>
+                        <view class="summa">
+                            <text class="title">{{item.title}}</text>
+                            <view class="goods_foot">
+                                <view class="goods_left">
+                                    <text class="prices">￥{{item.groupprice}}</text>
+                                    <text style="font-size:24rpx;color:#A0A0A0;">{{item.peoplenumber}}人团，单买价￥{{item.singleprice}}</text>
+                                </view>
+                                <view class="goods_right">
+                                    <text>去开团</text>
+                                    <image src="../../resource/images/white_hint.png"></image>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="tuijian" wx:else>
+            <view class="top">
+                <text>{{item[0].theme}}</text>
+                <view bindtap="allgoods" class="tjRight" data-theme="{{item[0].theme}}">
+                    <text>查看更多</text>
+                    <image src="../../resource/images/right.png"></image>
+                </view>
+            </view>
+            <view class="tjfoot">
+                <scroll-view class="move" scrollX="true">
+                    <view bindtap="showDetail" class="moveList" data-id="{{item.goods_id}}" wx:for="{{item}}" wx:key="{{index}}">
+                        <view class="list">
+                            <image src="{{item.thumb}}"></image>
+                            <text>{{item.title}}</text>
+                            <text>￥{{item.groupprice}}</text>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+</view>

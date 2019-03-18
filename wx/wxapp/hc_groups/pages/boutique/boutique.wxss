@@ -1,0 +1,215 @@
+.tuijian {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background: #f8f0ee;
+}
+
+.top {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 36rpx;
+    color: #f78b24;
+    font-weight: 550;
+    padding: 26rpx 2%;
+}
+
+.tjRight {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #9e9e9e;
+    font-size: 24rpx;
+}
+
+.tjRight image {
+    width: 24rpx;
+    height: 30rpx;
+}
+
+.tjfoot image {
+    width: 100%;
+}
+
+.move {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    white-space: nowrap;
+    width: 100%;
+    padding: 0 0 20rpx;
+    background: #f8f0ee;
+}
+
+.moveList {
+    width: 31%;
+    display: inline-block;
+    margin-left: 3%;
+}
+
+.list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 30rpx;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.list image {
+    width: 240rpx;
+    height: 240rpx;
+    border-radius: 20rpx;
+}
+
+.list text:nth-child(1) {
+    font-size: 24rpx;
+    margin-top: 20rpx;
+}
+
+.list text:nth-child(2) {
+    font-size: 30rpx;
+    margin-top: 20rpx;
+    color: #838181;
+    display: block;
+    width: 220rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.list text:nth-child(3) {
+    font-size: 30rpx;
+    margin-top: 10rpx;
+    color: #838181;
+    display: block;
+}
+
+.goodsList {
+    width: 100%;
+}
+
+.goods {
+    background: #f7f7f7;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.detail {
+    width: 49%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 16rpx;
+    background: #fff;
+}
+
+.detail image {
+    width: 100%;
+    height: 360rpx;
+}
+
+.goodsName {
+    font-size: 30rpx;
+    color: #3d3d3d;
+    margin: 10rpx 3%;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.goodPrice {
+    width: 94%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 10rpx 3%;
+}
+
+.priceRight {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.priceRight image {
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+}
+
+.goodPrice text {
+    color: #e02f24;
+    font-size: 32rpx;
+}

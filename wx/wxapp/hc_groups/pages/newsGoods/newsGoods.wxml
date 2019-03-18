@@ -1,0 +1,52 @@
+<view class="container">
+    <view>
+        <view class="toptitle">
+            <text>限时疯抢</text>
+            <text>特价爆款</text>
+        </view>
+        <view class="tuijian">
+            <view bindtap="jump" class="left" data-types="timelimit">
+                <view class="daojishi" wx:if="{{second>=0}}">
+                    <view class="time">{{clock[0]}}</view>：
+          <view class="time">{{clock[1]}}</view>：
+          <view class="time">{{clock[2]}}</view>
+                </view>
+                <view class="daojishi" wx:else>
+                    <view class="time">已截止</view>
+                </view>
+                <image src="{{timegoods.timelimit.thumb}}"></image>
+            </view>
+            <image src="../../resource/images/rightLine.png" style="width:1rpx;height:260rpx;"></image>
+            <view bindtap="jump" class="right" data-types="hotstyle">
+                <image src="{{timegoods.hotstyle.thumb}}"></image>
+            </view>
+        </view>
+    </view>
+    <view style="height:10rpx;width:100%;background:#eee;"></view>
+    <view class="newsGoods">
+        <text class="goodsTitile">全球热门</text>
+        <view bindtap="showDetail" class="goods" data-id="{{item.goods_id}}" wx:for="{{hotGoods}}" wx:key="index">
+            <view class="goodsLeft">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view class="goodsRight">
+                <view>
+                    <text class="shopName">{{item.title}}</text>
+                    <view class="goodsBuy">
+                        <image src="{{item.avatar}}" wx:if="{{index<=4}}" wx:for="{{item.user}}" wx:key="index"></image>
+                    </view>
+                </view>
+                <view class="goodsPrice">
+                    <view class="goodsleft">
+                        <text>已售{{item.sales_num}}件</text>
+                        <text>￥{{item.groupprice}}</text>
+                    </view>
+                    <view class="goodsright">
+                        <text>去开团</text>
+                        <image src="../../resource/images/white_hint.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

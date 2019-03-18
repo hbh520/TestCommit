@@ -1,0 +1,57 @@
+<view class="container">
+    <view class="row">
+        <text class="left">退款原因</text>
+        <view class="right">
+            <picker bindchange="bindPickerChange" range="{{array}}" value="{{index}}">
+                <view class="picker">
+          {{array.index}}
+        </view>
+            </picker>
+            <image src="../../../resource/images/rightdown.png"></image>
+        </view>
+    </view>
+    <view class="row">
+        <text class="left">收货状态</text>
+        <view class="right">
+            <text>{{status}}</text>
+        </view>
+    </view>
+    <view class="row">
+        <text class="left">退款原因</text>
+        <view class="right">
+            <picker bindchange="bindPickerChange1" range="{{array1}}" value="{{index1}}">
+                <view class="picker">
+          {{array1.index1}}
+        </view>
+            </picker>
+            <image src="../../../resource/images/rightdown.png"></image>
+        </view>
+    </view>
+    <view class="row">
+        <text class="left">退款金额</text>
+        <view class="right">
+            <text style="color:#FE5030;">￥{{money}}</text>
+            <text style="font-size:26rpx; color:#A3A3A3;">最多￥{{money}}</text>
+        </view>
+    </view>
+    <view class="line">
+        <view class="right" style="width:100%;">
+            <text style="color: #858587;">退款说明</text>
+            <text style="font-size:26rpx; color:#A3A3A3;">请输入您的退款原因</text>
+        </view>
+        <textarea bindinput="textare" placeholder="请输入您的退款原因" showConfirmBar="{{show}}" style="color:#333;"></textarea>
+    </view>
+    <view class="row" style="border-bottom:20rpx solid #f5f5f5;">
+        <text class="left">联系电话</text>
+        <view class="right">
+            <text>{{phone}}</text>
+        </view>
+    </view>
+    <view class="upphoto">
+        <image bindlongpress="longtap" data-index="{{index}}" src="{{item}}" wx:for="{{logo}}" wx:key="index"></image>
+        <image bindtap="chooseImageTap" src="../../../resource/images/upphoto.png"></image>
+    </view>
+    <view bindtap="submit" class="footer">
+        <button>提交申请</button>
+    </view>
+</view>

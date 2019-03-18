@@ -1,0 +1,76 @@
+{
+    "pages": [
+        "hc_groups/pages/index/index",
+        "hc_groups/pages/test/index",
+        "hc_groups/pages/test/detail/detail",
+        "hc_groups/pages/index/navGoods/navGoods",
+        "hc_groups/pages/member/index/index",
+        "hc_groups/pages/order/return/return",
+        "hc_groups/pages/member/refund/refund",
+        "hc_groups/pages/member/refund/detail/detail",
+        "hc_groups/pages/member/refund/detail/consult/consult",
+        "hc_groups/pages/member/refund/detail/moneyGo",
+        "hc_groups/pages/include/include",
+        "hc_groups/pages/member/evaluate/evaluate",
+        "hc_groups/pages/order/details/index",
+        "hc_groups/pages/address/list/list",
+        "hc_groups/pages/order/ordersubmit/index",
+        "hc_groups/pages/search/index",
+        "hc_groups/pages/order/shipping/shipping",
+        "hc_groups/pages/order/list/list",
+        "hc_groups/pages/goods/detail/detail",
+        "hc_groups/pages/goods/comment/comment",
+        "hc_groups/pages/address/add/add",
+        "hc_groups/pages/address/edit/index",
+        "hc_groups/pages/index/categorygoods/categorygoods",
+        "hc_groups/pages/newsGoods/newsGoods",
+        "hc_groups/pages/newsGoods/index/index",
+        "hc_groups/pages/goods/shareDetail/shareDetail",
+        "hc_groups/pages/goods/shareDetails/shareDetails",
+        "hc_groups/pages/boutique/boutique",
+        "hc_groups/pages/category/allgoods/allgoods",
+        "hc_groups/pages/category/category",
+        "hc_groups/pages/category/categorygoods/categorygoods"
+    ],
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#EA292A",
+        "backgroundColor": "#f5f5f5",
+        "enablePullDownRefresh": true
+    },
+    "tabBar": {
+        "selectedColor": "#E85A57",
+        "list": [
+            {
+                "pagePath": "hc_groups/pages/index/index",
+                "text": "首页",
+                "iconPath": "hc_groups/resource/images/1.png",
+                "selectedIconPath": "hc_groups/resource/images/11.png"
+            },
+            {
+                "pagePath": "hc_groups/pages/boutique/boutique",
+                "text": "新品",
+                "iconPath": "hc_groups/resource/images/2.png",
+                "selectedIconPath": "hc_groups/resource/images/22.png"
+            },
+            {
+                "pagePath": "hc_groups/pages/newsGoods/newsGoods",
+                "text": "精品",
+                "iconPath": "hc_groups/resource/images/3.png",
+                "selectedIconPath": "hc_groups/resource/images/33.png"
+            },
+            {
+                "pagePath": "hc_groups/pages/category/category",
+                "text": "搜索",
+                "iconPath": "hc_groups/resource/images/4.png",
+                "selectedIconPath": "hc_groups/resource/images/44.png"
+            },
+            {
+                "pagePath": "hc_groups/pages/member/index/index",
+                "text": "我",
+                "iconPath": "hc_groups/resource/images/5.png",
+                "selectedIconPath": "hc_groups/resource/images/55.png"
+            }
+        ]
+    }
+}

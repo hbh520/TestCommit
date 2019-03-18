@@ -1,0 +1,33 @@
+<view class="container">
+    <view class="tuijian">
+        <view class="top">
+      限时试新
+    </view>
+        <view class="tjfoot">
+            <scroll-view class="move" scrollX="true">
+                <view bindtap="showDetail" class="moveList" data-id="{{item.goods_id}}" wx:for="{{gettimegoods}}" wx:key="index">
+                    <view class="list">
+                        <image src="{{item.thumb}}"></image>
+                        <text>{{item.title}}</text>
+                        <text style="color:#E02F25;">￥{{item.groupprice}}</text>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <view class="goodsList">
+        <view class="top" style="color:#EA3232;">精品新品</view>
+    </view>
+    <view class="goods">
+        <view bindtap="showDetail" class="detail" data-id="{{item.goods_id}}" wx:for="{{getnewgoods}}" wx:key="index">
+            <image src="{{item.thumb}}"></image>
+            <text class="goodsName" style="height:46px;">{{item.title}}</text>
+            <view class="goodPrice">
+                <text>￥{{item.groupprice}}</text>
+                <view class="priceRight">
+                    <image src="{{item.avatar}}" wx:if="{{index<=1}}" wx:for="{{item.user}}" wx:key="index"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

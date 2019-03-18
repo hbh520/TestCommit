@@ -1,0 +1,50 @@
+<template name="share">
+    <view class="share">
+        <image src="{{pic}}"></image>
+        <view class="shareRight">
+            <text style="shareRighttitle">仅剩<text style="color:#DF2F22">{{group.neednum-group.buynum}}</text>个名额</text>
+            <view class="leftTop shareRight">
+                <view wx:if="{{goods.spec.length!=0}}">
+                    <text>￥{{goods.groupprice}}</text>
+                    <text style="font-size:20rpx;">￥{{goods.marketprice}}</text>
+                </view>
+                <view wx:else>
+                    <text>￥{{goods.groupprice}}</text>
+                    <text style="font-size:20rpx;">￥{{goods.marketprice}}</text>
+                </view>
+            </view>
+            <text class="gobug">限时抢购</text>
+        </view>
+    </view>
+    <view class="rowline"></view>
+    <view class="shareMain">
+        <view class="grouppic">
+            <view wx:for="{{group.userlist}}">
+                <image src="{{item.avatar}}" wx:if="{{item.avatar!=null}}"></image>
+                <image src="../../../resource/images/mpic.png" style="border:4rpx solid transparent;" wx:else></image>
+                <view class="head" wx:if="{{item.ishead==1}}">团长</view>
+            </view>
+        </view>
+        <button class="sharefriend" openType="share">邀请好友参团   <text>{{group.clock}}</text>   后结束</button>
+    </view>
+    <view class="rowline"></view>
+    <view bindtap="showDetail" class="gogoods" data-id="{{goods.goods_id}}">
+        <text>商品名称</text>
+        <view class="gogoods_right">
+            <text>商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称</text>
+            <image src="../../../resource/images/right6.png"></image>
+        </view>
+    </view>
+    <view class="gogoods">
+        <text>参团时间</text>
+        <view class="gogoods_right">
+            <text>{{group.starttime}}</text>
+        </view>
+    </view>
+    <view class="gogoods">
+        <text>拼团须知</text>
+        <view class="gogoods_right">
+            <text style="max-width:100%;font-size:26rpx;color:#A8A8A8;"> ·说明 ·好友参团 ·人满发货 ·人不满退款</text>
+        </view>
+    </view>
+</template>

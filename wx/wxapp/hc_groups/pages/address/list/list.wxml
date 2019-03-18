@@ -1,0 +1,35 @@
+<view class="address-list">
+    <view bindtap="setDefault" class="item" data-index="{{index}}" wx:for="{{addresslist}}">
+        <view class="header">
+            <text class="realname">{{item.realname}}，{{item.mobile}}</text>
+        </view>
+        <view class="summary">地址:{{item.address}}</view>
+        <view class="footer">
+            <view catchtap="setDefault" class="set-default" data-index="{{index}}">
+                <icon type="{{item.isdefault==1?'success_circle':'circle'}}"></icon>
+                <text>默认地址</text>
+            </view>
+            <view class="operation">
+                <view catchtap="edit" class="container" data-index="{{index}}">
+                    <image src="../../../resource/images/icon_edit.png"></image>
+                    <text>编辑</text>
+                </view>
+                <view catchtap="delete" class="container" data-index="{{index}}">
+                    <image src="../../../resource/images/icon_delete.png"></image>
+                    <text>删除</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="view-tint" wx:if="{{addressObjects.length==0}}">
+    <image src="../../../resource/images/icon_empty.png"></image>
+    <text>亲,没有数据</text>
+</view>
+<view bindtap="add" class="btn">
+    <view class="btnLeft">
+        <image src="../../../resource/images/addr.png"></image>
+        <text>新增收货地址</text>
+    </view>
+    <image class="btnRight" src="../../../resource/images/right6.png"></image>
+</view>

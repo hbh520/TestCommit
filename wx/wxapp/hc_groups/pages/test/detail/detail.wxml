@@ -1,0 +1,30 @@
+<view class="video">
+    <video autoplay="{{autoplay}}" bindended="end" bindplay="play" bindtimeupdate="pregress" controls="{{controls}}" data-id="{{item.id}}" data-index="{{index}}" enableProgressGesture="{{!btn}}" id="myVideo" initialTime="0" objectFit="fill" showCenterPlayBtn="{{btn}}" showFullscreenBtn="{{!btn}}" showPlayBtn="{{btn}}" showProgress="{{btn}}" src="{{item.src}}" style="width:{{width}}px;height:{{height}}px;" wx:for="{{videos}}" wx:key="index"></video>
+    <view class="notice">视频播放完领取红包</view>
+</view>
+<view class="money" style="margin-top:{{height}}px;">
+    <view class="left">
+        <text>共50元，</text>
+        <text>领取10/30个</text>
+    </view>
+    <text style="color:#3E5075;">举报</text>
+</view>
+<view class="getDetail">
+    <view class="items">
+        <view class="itemLeft">
+            <image src="../../../resource/images/header.png"></image>
+            <view class="itemLT">
+                <view class="header">
+                    <text>昵称</text>
+                    <image src="../../../resource/images/girl.png"></image>
+                </view>
+                <view>声音</view>
+            </view>
+        </view>
+        <view class="itemRight">
+            <view class="itemRT">8.8元</view>
+            <view class="itemRF">02月30日 15:36</view>
+        </view>
+    </view>
+</view>
+<video bindtap="jump" controls="{{!btn}}" src="{{videos[0].src}}"></video>

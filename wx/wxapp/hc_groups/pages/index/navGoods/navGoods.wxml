@@ -1,0 +1,24 @@
+<view wx:if="{{topCategories!=null}}">
+    <scroll-view scrollX class="tab">
+        <view class="list">
+            <view bindtap="click" class="item" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{topCategories}}" wx:key="index">
+                <text class="{{height.index}}" style="padding-bottom:20rpx;">{{item.name}}</text>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view wx:if="{{goodsList.length!=0}}">
+    <view class="goods">
+        <view bindtap="showDetail" class="detail" data-id="{{item.goods_id}}" data-index="{{index}}" wx:for="{{goodsList}}" wx:key="index">
+            <image src="{{item.thumb}}"></image>
+            <text class="goodsName">{{item.title}}</text>
+            <view class="goodPrice">
+                <text>￥{{item.groupprice}}</text>
+                <view class="priceRight"></view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="notice" wx:else>
+  暂时没有商品
+</view>

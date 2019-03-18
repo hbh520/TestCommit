@@ -1,0 +1,30 @@
+<view class="top">
+    <view bindtap="search" class="search">
+        <image src="../../resource/images/search.png"></image>
+        <input disabled="readonly" placeholder="搜索"></input>
+    </view>
+</view>
+<view class="container">
+    <scroll-view scrollY class="sidebar">
+        <view bindtap="tapTopCategory" class="normal {{highlight.index}}" data-banner="{{item.name}}" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{topCategories}}" wx:key="{{index}}">
+      {{item.name}}
+    </view>
+    </scroll-view>
+    <scroll-view scrollY class="main" scrollIntoView="head{{ID}}" style="height:{{screenHeight}}px">
+        <view wx:for="{{topCategories}}" wx:key="index">
+            <view class="mainTop" id="head{{item.id}}">
+                <text>{{item.name}}</text>
+                <view bindtap="allgoods" class="mainTopR" data-id="{{item.id}}">
+                    <text>查看更多</text>
+                    <image src="../../resource/images/right.png"></image>
+                </view>
+            </view>
+            <view class="categorys">
+                <view bindtap="categoods" class="category" data-id="{{item.id}}" wx:for="{{item.children}}" wx:key="index">
+                    <image src="{{item.thumb}}"></image>
+                    <text>{{item.name}}</text>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

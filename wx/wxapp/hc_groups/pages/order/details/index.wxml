@@ -1,0 +1,160 @@
+<view class="order_status">
+    <text class="orderR" wx:if="{{status==1}}">待付款</text>
+    <text class="orderR" wx:if="{{status==4}}">交易成功</text>
+    <view wx:if="{{status==2}}">
+        <text class="orderR" wx:if="{{isshare==1}}">待分享</text>
+        <text class="orderR" wx:if="{{isshare==2}}">待发货</text>
+    </view>
+    <text class="orderR" wx:if="{{status==3}}">待收货</text>
+    <text class="orderR" wx:if="{{status==6}}">已退款</text>
+    <text class="orderR" wx:if="{{status==7}}">已取消</text>
+    <view wx:if="{{status==2}}">
+        <image src="../../../resource/images/daifahuo.png" wx:if="{{isshare==1}}"></image>
+        <image src="../../../resource/images/daichengtuan.png" wx:if="{{isshare==2}}"></image>
+    </view>
+    <image src="../../../resource/images/daizhifu.png" wx:if="{{status==1||status==7}}"></image>
+    <image src="../../../resource/images/pintuanchenggong.png" wx:if="{{status==4}}"></image>
+    <image src="../../../resource/images/fahuo.png" wx:if="{{status==3}}"></image>
+    <image src="../../../resource/images/pintuanshibai.png" wx:if="{{status==6}}"></image>
+</view>
+<view bindtap="shipping" class="shipping" data-id="{{order_id}}" wx:if="{{detail.express.context!=null}}">
+    <view style="width:10%;height:50rpx;">
+        <image src="../../../resource/images/orderD1.png"></image>
+    </view>
+    <view class="shipping_top">
+        <view style="color:#4DCA95;line-height:36rpx;">{{detail.express.context}}</view>
+        <view style="color:#7F7F7F;">{{detail.express.ftime}}</view>
+    </view>
+    <view style="width:10%;text-align:right;">
+        <image src="../../../resource/images/right.png" style="width:20rpx;height:30rpx;"></image>
+    </view>
+</view>
+<view class="address">
+    <view style="width:10%;">
+        <image src="../../../resource/images/orderD2.png"></image>
+    </view>
+    <view class="address_top">
+        <view>
+            <text style="margin-right:20rpx;">{{detail.address.realname}}</text>
+            <text>{{detail.address.mobile}}</text>
+        </view>
+        <text>{{detail.address.address}}</text>
+    </view>
+</view>
+<view class=" class-line1" wx:if="{{status<=4&&status>=2}}"></view>
+<view class="group" wx:if="{{status<=4&&status>=2}}">
+    <view class="group_top ">
+        <image src="../../../resource/images/orderD3.png "></image>
+        <text>{{title}}</text>
+    </view>
+    <view class="grouppic">
+        <view wx:for="{{detail.user}}">
+            <image src="{{item.avatar}}" wx:if="{{item.avatar!=null}}"></image>
+            <image src="../../../resource/images/mpic.png " style="border:4rpx solid transparent;" wx:else></image>
+            <view class="head" wx:if="{{item.ishead==1}}">团长</view>
+        </view>
+    </view>
+</view>
+<view class="class-line1 "></view>
+<view class="view-title ">
+    <image src="../../../resource/images/icon_order.png"></image>
+    <text>{{title}}</text>
+</view>
+<view class="orderMain ">
+    <view>
+        <image src="{{detail.goods.thumb}} "></image>
+    </view>
+    <view bindtap="showDetail" class="detail" data-id="{{goods_id}}">
+        <view class="detailLeft ">
+            <text>{{detail.goods.title}}</text>
+            <text wx:if="{{detail.goods.option_title!=null}}">{{detail.goods.option_title}}</text>
+        </view>
+        <view class="detailRight ">
+            <text>￥{{detail.goods.fact_amount}}</text>
+            <text>x{{detail.goods.number}}</text>
+        </view>
+    </view>
+</view>
+<view class="orderPrice ">
+    <text>总计:￥{{detail.goods.fact_amount}}</text>
+</view>
+<view class="mobile ">
+    <view class="Mright ">
+        <image src="../../../resource/images/detailwx.png "></image>
+        <button openType="contact">
+      联系客服
+    </button>
+    </view>
+    <view bindtap="call" class="Mleft ">
+        <image src="../../../resource/images/detailphone.png "></image>
+        <text>电话咨询</text>
+    </view>
+</view>
+<view class="class-line1"></view>
+<view class="footer">
+    <view>
+        <text>订单编号：</text>
+        <text>{{detail.info.orderno}}</text>
+    </view>
+    <view>
+        <text>支付方式：</text>
+        <text>微信</text>
+    </view>
+    <view>
+        <text>下单时间：</text>
+        <text>{{detail.info.createtime}}</text>
+    </view>
+    <view wx:if="{{status<=4&&status>=3}}">
+        <text>拼单时间：</text>
+        <text>{{detail.info.starttime}}</text>
+    </view>
+    <view wx:if="{{status<=4&&status>=3}}">
+        <text>发货时间：</text>
+        <text>{{detail.info.sendtime}}</text>
+    </view>
+    <view wx:if="{{status<=4&&status>=2}}">
+        <text>成交时间：</text>
+        <text>{{detail.info.finishtime}}</text>
+    </view>
+    <view wx:if="{{status<=4&&status>=3}}">
+        <text>快递方式：</text>
+        <text>{{detail.info.expresscom}}</text>
+    </view>
+    <view wx:if="{{status<=4&&status>=3}}">
+        <text>运单编号：</text>
+        <text>{{detail.info.expresssn}}</text>
+    </view>
+</view>
+<view class="orderStatus" wx:if="{{status==1}}">
+    <text bindtap="delorder" data-id="{{order_id}}" data-index="{{index}}">删除订单</text>
+    <text bindtap="cancel" data-id="{{order_id}}" data-index="{{index}}" wx:if="{{cancel==0}}">取消订单</text>
+    <text bindtap="gopay" class="pay" data-id="{{order_id}}" wx:if="{{cancel==0}}"> 去支付 </text>
+    <text class="pay" data-id="{{order_id}}" wx:if="{{cancel==1}}"> 已取消 </text>
+</view>
+<view class="orderStatus" wx:if="{{status==7}}">
+    <text bindtap="delorder" data-id="{{order_id}}" data-index="{{index}}">删除订单</text>
+    <text class="pay" data-id="{{id}}"> 已取消 </text>
+</view>
+<view class="orderStatus" wx:if="{{status==4}}">
+    <text bindtap="delorder" data-id="{{order_id}}" data-index="{{index}}">删除订单</text>
+    <text bindtap="showDetail" data-id="{{goods_id}}">再次购买</text>
+    <text bindtap="comment" class="pay" data-id="{{goods_id}}" data-index="{{index}}" data-orderid="{{order_id}}" data-pic="{{item.goods_thumb}}" wx:if="{{iscomment==0}}">立即评价</text>
+    <text bindtap="" class="pay" data-id="{{goods_id}}" data-orderid="{{order_id}}" data-pic="{{item.goods_thumb}}" wx:else>已评价</text>
+</view>
+<view class="orderStatus" wx:if="{{status==2}}">
+    <text bindtap="delorder" data-id="{{order_id}}" data-index="{{index}}">删除订单</text>
+    <text bindtap="showDetail" data-id="{{goods_id}}">再次购买</text>
+    <text bindtap="returnM" data-id="{{order_id}}" data-money="{{detail.goods.fact_amount}}" data-phone="{{detail.address.mobile}}" data-status="未收到货">退款</text>
+    <button class="sharebtn" data-goodsId="{{goods_id}}" data-groupid="{{group_id}}" data-id="{{order_id}}" data-index="{{index}}" openType="share" wx:if="{{isshare==1}}">邀请好友</button>
+</view>
+<view class="orderStatus" wx:if="{{status==3}}">
+    <text bindtap="delorder" data-id="{{order_id}}" data-index="{{index}}">删除订单</text>
+    <text bindtap="shipping" data-id="{{order_id}}" wx:if="{{finsh==0}}">查看物流</text>
+    <text bindtap="returnM" data-id="{{order_id}}" data-money="{{detail.goods.fact_amount}}" data-phone="{{detail.address.mobile}}" data-status="已收到货">退款</text>
+    <text bindtap="confirm" class="pay" data-id="{{order_id}}" data-index="{{index}}" wx:if="{{finsh==0}}">确认收货</text>
+    <text class="pay" data-id="{{order_id}}" wx:if="{{finsh==1}}"> 已完成 </text>
+</view>
+<view class="orderStatus" wx:if="{{status==6}}">
+    <text bindtap="delorder" data-id="{{order_id}}" data-index="{{index}}">删除订单</text>
+    <text class="pay" data-id="{{order_id}}"> 已退款 </text>
+</view>

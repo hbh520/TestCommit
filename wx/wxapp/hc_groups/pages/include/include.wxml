@@ -1,0 +1,6 @@
+<scroll-view scrollX class="tab">
+    <view class="tablist">
+        <view bindtap="click" class="item {{height.index}}" data-index="{{index}}" wx:for="{{tab}}">{{item}}</view>
+    </view>
+</scroll-view>
+<include src="../index/index.wxml"></include>
